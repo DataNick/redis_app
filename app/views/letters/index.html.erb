@@ -1,0 +1,16 @@
+<h1>Letters</h1>
+<div class="col-md-9">
+  <ul>
+    <% @letters.each do |letter| %>
+      <li>
+        <%= letter.name %>
+        <small>
+          <%= letter.score %>
+        </small>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="col-md-3">
+  <%= render "top" %>
+</div>
