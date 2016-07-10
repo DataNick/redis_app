@@ -4,12 +4,12 @@ class LettersController < ApplicationController
   end
 
   def upvote
-    @letter = Letter.find params[:id]
+    @letter = Letter.find(params[:id])
     @letter.update_attribute :score, @letter.score + 1
     LetterRedisRepository.increment @letter
-    MessageWorker.perform_async "Anonymous", <<EOF, letters_url
-The letter #{@letter.name} has been upvoted.
-EOF
+#     MessageWorker.perform_async "Anonymous", <<EOF, letters_url
+# The letter #{@letter.name} has been upvoted.
+# EOF
 
     redirect_to letters_path, notice: "Upvoted the letter."
   end
@@ -19,10 +19,11 @@ EOF
     @letter.update_attribute :score, @letter.score - 1
     LetterRedisRepository.decrement @letter
 
-    MessageWorker.perform_async "Anonymous", <<EOF, letters_url
-The letter #{@letter.name} has been downvoted.
-EOF
+#     MessageWorker.perform_async "Anonymous", <<EOF, letters_url
+# The letter #{@letter.name} has been downvoted.
+# EOF
 
     redirect_to letters_path, notice: "Downvoted the letter."
   end
+
 end
