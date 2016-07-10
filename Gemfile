@@ -12,14 +12,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'bootstrap-sass'
 gem "autoprefixer-rails"
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+
 gem 'redis', '~> 3.3'
 gem 'redis-rails', '~> 5.0', '>= 5.0.1'
 gem 'sidekiq'
+gem 'httparty'
 
 gem 'puma'
-gem 'redcarpet', '~> 3.3', '>= 3.3.4'
-gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'pry-byebug'
