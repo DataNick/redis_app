@@ -12,9 +12,11 @@ class Message
         user: @user,
         url: @url
       }
-    }).to_json, headers: {
+    }.to_json, headers: {
       "Accept" => "application/json",
       "Content-Type" => "application/json"
-    }
+    })
   end
 end
+
+
